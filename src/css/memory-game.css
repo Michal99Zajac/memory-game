@@ -1,0 +1,268 @@
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #110022;
+}
+
+.game {
+  flex-wrap: wrap;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.game-bar {
+  min-width: 360px;
+  width: 40%;
+  height: 8%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+.board {
+  width: 100%;
+  height: 90%;
+  min-width: 870px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards {
+  width: 800px;
+  min-height: 800px;
+  background: linear-gradient(160deg, #EF3EFE 0%, #5C9DEE 100%);
+  padding: 30px;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+  border-radius: 10px;
+  box-shadow: 0 0 12px -3px #989898;
+}
+
+.rewers, .awers, .card, .matched {
+  height: 174px;
+  width: 174px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 104px;
+  box-shadow: 0 0 12px -3px #222222;
+}
+
+.card {
+  background-color: #ffffff;
+}
+.card .parag {
+  visibility: hidden;
+}
+.card:hover {
+  background-color: #ECECEC;
+}
+
+.rewers {
+  background-color: #ffffff;
+  animation: awers-to-rewers 0.6s ease-in-out;
+}
+.rewers .parag {
+  visibility: hidden;
+  transition-delay: 0.3s;
+}
+
+.awers {
+  background-color: #2B193D;
+  animation: rewers-to-awers 0.6s ease-in-out;
+}
+.awers .parag {
+  visibility: visible;
+  transition-delay: 0.3s;
+}
+.awers:hover {
+  background-color: #2B193D;
+}
+
+.matched {
+  background-color: #F59CFF;
+  animation: card-matched 1s ease-in-out;
+}
+.matched .parag {
+  visibility: visible;
+  transition-delay: 0.3s;
+}
+.matched:hover {
+  background-color: #F59CFF;
+}
+
+.parag {
+  transition: visibility;
+  background: -webkit-linear-gradient(160deg, #EF3EFE 0%, #5C9DEE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.timer, .moves, .restart {
+  min-width: 120px;
+  height: 45px;
+  padding: 2px;
+  background: linear-gradient(160deg, #EF3EFE 0%, #5C9DEE 100%);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow: 0 0 12px -3px #989898;
+  font-size: 18px;
+}
+
+.restart {
+  border: 0;
+  border-radius: 5px;
+  height: 49px;
+  transition: transform 0.6s;
+}
+.restart:focus {
+  outline: none;
+}
+.restart:hover {
+  transform: scale(1.05);
+}
+
+.win-board {
+  position: absolute;
+  min-width: 500px;
+  height: 282px;
+  background: #110022;
+  border-radius: 10px;
+  padding: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: start;
+  color: white;
+  align-content: flex-start;
+}
+
+h1 {
+  font-size: 39px;
+  background: -webkit-linear-gradient(160deg, #EF3EFE 0%, #5C9DEE 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: red 2px;
+  margin: 0;
+  padding: 10px;
+}
+
+.beam {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(160deg, #EF3EFE 0%, #5C9DEE 100%);
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.win-label, .win-info {
+  width: 50%;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 12px -3px #989898;
+}
+
+.win-label {
+  background: linear-gradient(160deg, #EF3EFE 0%, #5C9DEE 100%);
+  border-radius: 20px 0 0 20px;
+}
+
+.win-info {
+  background: white;
+  border-radius: 0 20px 20px 0;
+  color: black;
+}
+
+.win-button {
+  width: 100%;
+  height: 48px;
+  background: linear-gradient(160deg, #EF3EFE 0%, #5C9DEE 100%);
+  border-radius: 10px;
+  border: 0;
+  font-size: 24px;
+  padding: 0;
+  color: white;
+  box-shadow: 0 0 12px -3px #989898;
+  transition: transform 0.6s;
+}
+.win-button:focus {
+  outline: none;
+}
+.win-button:hover {
+  transform: scale(1.05);
+}
+
+@keyframes awers-to-rewers {
+  0% {
+    background-color: #2B193D;
+  }
+  50% {
+    transform: rotate3d(0, 1, 0, 90deg);
+  }
+  100% {
+    background-color: #ffffff;
+  }
+}
+@keyframes rewers-to-awers {
+  0% {
+    background-color: #ffffff;
+  }
+  50% {
+    transform: rotate3d(0, 1, 0, 90deg);
+  }
+  100% {
+    background-color: #2B193D;
+  }
+}
+@keyframes card-matched {
+  0% {
+    background-color: #2B193D;
+  }
+  50% {
+    background-color: #2B193D;
+    transform: scale(1.1);
+  }
+  66% {
+    transform: rotate(10deg);
+  }
+  82% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    trasnsform: rotate(0deg) scale(1);
+    background-color: #F59CFF;
+  }
+}
+
+/*# sourceMappingURL=memory-game.css.map */

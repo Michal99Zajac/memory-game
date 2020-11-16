@@ -1,0 +1,13 @@
+{
+  "name": "IO",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "google-chrome --disable-gpu --disable-software-rasterizer ./src/index.html",
+    "sass": "sass src/sass/* src/css/memory-game.css"
+  },
+  "dependencies": {
+    "sass": "^1.27.1"
+  }
+}
