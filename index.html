@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Game</title>
+  <link rel="stylesheet" href="src/css/memory-game.css">
+</head>
+<body>
+  <div class="game">
+    <div class="game-bar">
+      <span class="timer">0:0</span>
+      <span class="moves">0 Moves</span>
+      <button class="restart" onclick="">RESTART</button>
+    </div>
+    <div class="board">
+      <ul class="cards">
+      </ul>
+    </div>
+  </div>
+
+  <div style="display: none;" class="win-board">
+    <h1>congratulations</h1>
+    <span class="beam"></span>
+    <label class="win-label">time</label><label id="timer" class="win-info"></label>
+    <label class="win-label">moves</label><label id="moves" class="win-info"></label>
+    <button class="win-button">RESTART</button>
+  </div>
+  <script src="dist/bundle-app.js"></script>
+</body>
+</html>

@@ -4,10 +4,15 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "google-chrome --disable-gpu --disable-software-rasterizer ./src/index.html",
-    "sass": "sass src/sass/* src/css/memory-game.css"
+    "start": "google-chrome --disable-gpu --disable-software-rasterizer ./index.html",
+    "sass": "sass src/sass/* src/css/memory-game.css",
+    "build": "webpack --config webpack.config.js"
   },
   "dependencies": {
-    "sass": "^1.27.1"
+    "sass": "^1.27.1",
+    "webpack": "^5.11.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^4.3.1"
   }
 }
