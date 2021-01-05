@@ -24,11 +24,15 @@ class Game {
     this.userInterface = userInterface;
   }
 
-  startNewGame() {
+  resetAttr() {
     this.moves = 0;
     this.flips = 0;
     this.matchedPairs = 0;
     this.firstCard = undefined;
+  }
+
+  startNewGame() {
+    this.resetAttr();
     this.cards = this.board.shuffleCards();
     this.userInterface.resetMovesCounter();
     this.userInterface.buildBoard(this.cards);
@@ -36,7 +40,7 @@ class Game {
     this.userInterface.startTime();
   }
 
-  async turn(cardIndex) {
+  checkProspect(cardIndex) {
     if (cardIndex === null) {
       return false;
     }
@@ -47,6 +51,13 @@ class Game {
       return false;
     }
     if (this.flips > 1) {
+      return false;
+    }
+    return true;
+  }
+
+  async turn(cardIndex) {
+    if (!this.checkProspect(cardIndex)) {
       return false;
     }
 
@@ -63,16 +74,16 @@ class Game {
       } else {
         this.cardsMatched(this.firstCard, cardIndex);
       }
-
-      if (this.matchedPairs >= MAX_MATCH_PAIRS) {
-        this.userInterface.stopTime();
-        await this.sleep(2000);
-        this.userInterface.showWinBoard(this, this.moves);
-        return true;
-      }
-
-      return false;
     }
+
+    if (this.matchedPairs >= MAX_MATCH_PAIRS) {
+      this.userInterface.stopTime();
+      await this.sleep(2000);
+      this.userInterface.showWinBoard(this, this.moves);
+      return true;
+    }
+
+    return false;
   }
 
   async cardsMatched(cardOneIndex, cardTwoIndex) {
