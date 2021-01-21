@@ -47,10 +47,10 @@ class Game {
     if (this.firstCard === cardIndex) {
       return false;
     }
-    if (this.userInterface.isMatched(cardIndex)) {
+    if (this.flips > 1) {
       return false;
     }
-    if (this.flips > 1) {
+    if (this.userInterface.isMatched(cardIndex)) {
       return false;
     }
     return true;
