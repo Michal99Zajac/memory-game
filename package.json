@@ -6,13 +6,26 @@
   "scripts": {
     "start": "google-chrome --disable-gpu --disable-software-rasterizer ./index.html",
     "sass": "sass src/sass/* src/css/memory-game.css",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "test": "mocha src/**/*.spec.js",
+    "test-coverage": "nyc --reporter=text mocha src/**/*.spec.js"
   },
   "dependencies": {
+    "@types/mocha": "^8.2.0",
+    "path": "^0.12.7",
     "sass": "^1.27.1",
     "webpack": "^5.11.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/register": "^7.12.10",
+    "@types/chai": "^4.2.14",
+    "babel-cli": "^6.26.0",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1",
+    "nyc": "^15.1.0",
+    "regenerator-runtime": "^0.13.7",
     "webpack-cli": "^4.3.1"
   }
 }
