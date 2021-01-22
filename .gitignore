@@ -4,3 +4,9 @@ jspm_packages/
 
 # vscode
 .vscode
+
+# yarn
+yarn.lock
+
+# .nyc_output
+.nyc_output
